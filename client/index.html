@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="weather">
-        <h2>Weather App</h2>
-        <input type="text" id="city" placeholder="Enter city name">
-        <button id="weatherBtn"  onclick="getWeather()">Get Weather</button>
-        <div id="status" style="display: none;"></div>
-        <div id="result"></div>
-    </div>  
-
-
-
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="weather">
+                <h2>How's the Weather?</h2>
+                <input type="text" id="city" placeholder="Enter city name">
+                <button id="weatherBtn" onclick="getWeather()">Get Weather</button>
+                <div id="status" style="display: none;"></div>
+                <!-- <div id="result"></div> -->
+            </div>
+            <div class="result">
+                <h3>Weather Information</h3>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
     <script src="client.js"></script>
 </body>
 </html>
