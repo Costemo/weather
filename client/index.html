@@ -14,12 +14,14 @@
                 <input type="text" id="city" placeholder="Enter city name">
                 <button id="weatherBtn" onclick="getWeather()">Get Weather</button>
                 <div id="status" style="display: none;"></div>
-                <!-- <div id="result"></div> -->
+              
             </div>
             <div class="result">
-                <h3>Weather Information</h3>
-                <div id="result"></div>
+                <button id="closeBtn" onclick="flipBack()">X</button>
+                
+                <div id="result-grid"></div>
             </div>
+            
         </div>
     </div>
     <script src="client.js"></script>

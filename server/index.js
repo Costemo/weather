@@ -68,6 +68,14 @@ app.get('/api/weather', authenticate, async (req, res) => {
       temperature: weatherData.currentConditions.temp,
       description: weatherData.currentConditions.conditions,
       icon: weatherData.currentConditions.icon,
+      humidity: weatherData.currentConditions.humidity,
+      windSpeed: weatherData.currentConditions.windspeed,
+      pressure: weatherData.currentConditions.pressure,
+      feelsLike: weatherData.currentConditions.feelslike,
+      visibility: weatherData.currentConditions.visibility,
+      uvIndex: weatherData.currentConditions.uvindex,
+      sunrise: weatherData.currentConditions.sunrise,
+      sunset: weatherData.currentConditions.sunset
     };
 
     // Send weather data to the client

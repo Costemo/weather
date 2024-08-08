@@ -3,11 +3,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    background-color: #f0f8ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(45deg, rgb(33, 14, 77), rgb(71, 71, 226));
+   color: white;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .flip-container {
@@ -20,6 +19,9 @@ body {
     height: 300px;
     transition: 0.6s;
     transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flip-container.flipped .flipper {
@@ -29,22 +31,80 @@ body {
 .weather, .result {
     position: absolute;
     width: 100%;
-    height: 100%;
+    
     backface-visibility: hidden;
+    min-height: 100%;
+
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
 }
 
 .weather {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
 }
 
 .result {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
     transform: rotateY(180deg);
+    padding: 10px; /* Adjusted padding for better spacing */
+}
+
+#result-grid {
+    
+    width: 100%;
+}
+
+.top {
+    width: 100%;
+    text-align: center; /* Center text within the top section */
+    margin-bottom: 10px; /* Space between top section and grid */
+}
+h4 {
+    font-size: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+.top-info {
+    display: flex;
+    flex-direction: ;
+    align-items: center; /* Center content horizontally within the top-info section */
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.info-grid > p {
+    margin: 0;
     padding: 5px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    /* 3D Effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 -2px 5px rgba(0, 0, 0, 0.15);
+    transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+}
+
+#closeBtn {
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
 }
