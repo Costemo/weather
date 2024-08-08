@@ -16,6 +16,7 @@
     "caniuse-lite": "^1.0.30001649",
     "chrome-trace-event": "^1.0.4",
     "commander": "^2.20.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "electron-to-chromium": "^1.5.4",
     "enhanced-resolve": "^5.17.1",
@@ -59,6 +60,8 @@
     "webpack-sources": "^3.2.3"
   },
   "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
