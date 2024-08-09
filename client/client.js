@@ -1,5 +1,6 @@
 
 
+
 let apiKey;
 
 async function fetchApiKey() {
@@ -96,33 +97,42 @@ function flipBack() {
 
 function setBackgroundImage(description) {
     let imageUrl;
+    let textColor;
 
     // Map weather descriptions to image URLs
     switch (true) {
-        case /sunny/i.test(description):
-            imageUrl = 'url(sunny.jpg)';
+        case /Sunny/i.test(description):
+            imageUrl = 'url(../images/sunny.jpg)';
+            textColor = 'white';
             break;
-        case /rainy|rain/i.test(description):
-            imageUrl = 'url(rainy.jpg)';
+        case /Rainy/i.test(description):
+            imageUrl = 'url(../images/rainy.jpg)';
+            textColor = 'white';
             break;
-        case /cloudy/i.test(description):
-            imageUrl = 'url(cloudy.jpg)';
+        case /Cloudy/i.test(description):
+            imageUrl = 'url(../images/cloudy.jpg)';
+            textColor = 'black';
             break;
         case /Partially cloudy/i.test(description):
-            imageUrl = 'url(partially.jpg)';
+            imageUrl = 'url(../images/partially.jpg)';
+            textColor = 'black';
                 break;
-        case /snow/i.test(description):
-            imageUrl = 'url(snowy.jpg)';
+        case /Snow/i.test(description):
+            imageUrl = 'url(../images/snowy.jpg)';
+            textColor = 'black';
             break;
-        case /clear/i.test(description):
-            imageUrl = 'url(sunny.jpg)';
+        case /Clear/i.test(description):
+            imageUrl = 'url(../images/sunny.jpg)';
+            textColor = 'white';
                 break;
         default:
-            imageUrl = 'url(default.jpg)'; // Fallback image
+            imageUrl = 'url(../images/sunny.jpg)';
+            textColor = 'white';
     }
 
     // Apply the background image
-    document.body.style.backgroundImage = `url(${imageUrl})`;
+    document.body.style.backgroundImage = imageUrl;
+    document.body.style.color = textColor;
 }
 
 console.log('API Key Loaded:', apiKey); // After setting the key in fetchApiKey
