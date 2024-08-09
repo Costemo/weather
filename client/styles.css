@@ -7,6 +7,8 @@ body {
     background: linear-gradient(45deg, rgb(33, 14, 77), rgb(71, 71, 226));
    color: white;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center;
 }
 
 .flip-container {
@@ -16,7 +18,7 @@ body {
 .flipper {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: ;
     transition: 0.6s;
     transform-style: preserve-3d;
     display: flex;
@@ -31,14 +33,15 @@ body {
 .weather, .result {
     position: absolute;
     width: 100%;
-    
+    max-height: 90vh;
     backface-visibility: hidden;
-    min-height: 100%;
+    /* min-height: 100%; */
 
     background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px); /* Frosted glass effect */
+    
 }
 
 .weather {
@@ -60,6 +63,8 @@ body {
     width: 100%;
     text-align: center; /* Center text within the top section */
     margin-bottom: 10px; /* Space between top section and grid */
+    padding-top: 5px;
+    margin-top: 5px;
 }
 h4 {
     font-size: 50px;
@@ -73,8 +78,10 @@ h5 {
 
 .top-info {
     display: flex;
-    flex-direction: ;
+    justify-content: space-evenly;
     align-items: center; /* Center content horizontally within the top-info section */
+    border-bottom: 2px solid rgb(59, 59, 182);
+    border-top: 2px solid rgb(59, 59, 182);
 }
 
 .info-grid {
@@ -90,16 +97,17 @@ h5 {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     aspect-ratio: 1/1;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     font-size: 20px;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 20%;
     /* 3D Effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 -2px 5px rgba(0, 0, 0, 0.15);
-    transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+    /* transform: perspective(500px) rotateX(10deg) rotateY(10deg); */
 }
 
 #closeBtn {
@@ -107,4 +115,15 @@ h5 {
     padding: 5px;
     height: 30px;
     width: 30px;
+    position: absolute;
+    right: 2%;
+}
+
+
+
+.info-grid span.weather-value {
+    font-size: 40px; /* Adjust this size as needed */
+    font-weight: bold; /* Optional: Makes the fetched value bold */
+    color: #fcfeff; /* Optional: Change the color of the fetched values */
+  
 }

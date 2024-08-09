@@ -50,13 +50,15 @@ async function getWeather() {
 
         const weather = await response.json();
 
+        setBackgroundImage(weather.description);
+
         console.log('Weather Data:', weather); // Debugging line
 
         const topSection = `
         <div class="top">
             <h3>${weather.city || 'Unknown City'}</h3>
             <div class="top-info">
-                <h4>${weather.temperature !== undefined ? weather.temperature + '°C' : 'N/A'}</h4>
+                <h4>${weather.temperature !== undefined ? weather.temperature + '°F' : 'N/A'}</h4>
                 
                 <h5>${weather.description || 'N/A'}</h5>
             </div>
@@ -65,12 +67,12 @@ async function getWeather() {
 
     const gridInfo = `
         <div class="info-grid">
-            <p>Humidity:<br>${weather.humidity !== undefined ? weather.humidity + '%' : 'N/A'}</p>
-            <p>Wind Speed:<br>${weather.windSpeed !== undefined ? weather.windSpeed + ' km/h' : 'N/A'}</p>
-            <p>Pressure:<br>${weather.pressure !== undefined ? weather.pressure + ' hPa' : 'N/A'}</p>
-            <p>Feels Like:<br>${weather.feelsLike !== undefined ? weather.feelsLike + '°C' : 'N/A'}</p>
-            <p>Visibility:<br>${weather.visibility !== undefined ? weather.visibility + ' km' : 'N/A'}</p>
-            <p>UV Index:<br>${weather.uvIndex !== undefined ? weather.uvIndex : 'N/A'}</p>
+             <p>Humidity:<br><span class="weather-value">${weather.humidity !== undefined ? weather.humidity + '%' : 'N/A'}</span></p>
+                <p>Wind Speed:<br><span class="weather-value">${weather.windSpeed !== undefined ? weather.windSpeed + ' m/h' : 'N/A'}</span></p>
+                <p>Precipitation:<br><span class="weather-value">${weather.precipitation !== undefined ? weather.precipitation + ' in' : 'N/A'}</span></p>
+                <p>Feels Like:<br><span class="weather-value">${weather.feelsLike !== undefined ? weather.feelsLike + '°C' : 'N/A'}</span></p>
+                <p>Visibility:<br><span class="weather-value">${weather.visibility !== undefined ? weather.visibility + ' miles' : 'N/A'}</span></p>
+                <p>UV Index:<br><span class="weather-value">${weather.uvIndex !== undefined ? weather.uvIndex : 'N/A'}</span></p>
             
         </div>
     `;
@@ -92,6 +94,36 @@ function flipBack() {
     document.querySelector('.flip-container').classList.remove('flipped');
 }
 
+function setBackgroundImage(description) {
+    let imageUrl;
+
+    // Map weather descriptions to image URLs
+    switch (true) {
+        case /sunny/i.test(description):
+            imageUrl = 'url(sunny.jpg)';
+            break;
+        case /rainy|rain/i.test(description):
+            imageUrl = 'url(rainy.jpg)';
+            break;
+        case /cloudy/i.test(description):
+            imageUrl = 'url(cloudy.jpg)';
+            break;
+        case /Partially cloudy/i.test(description):
+            imageUrl = 'url(partially.jpg)';
+                break;
+        case /snow/i.test(description):
+            imageUrl = 'url(snowy.jpg)';
+            break;
+        case /clear/i.test(description):
+            imageUrl = 'url(sunny.jpg)';
+                break;
+        default:
+            imageUrl = 'url(default.jpg)'; // Fallback image
+    }
+
+    // Apply the background image
+    document.body.style.backgroundImage = `url(${imageUrl})`;
+}
 
 console.log('API Key Loaded:', apiKey); // After setting the key in fetchApiKey
 console.log('API Key in getWeather:', apiKey); // Before making the request in getWeather

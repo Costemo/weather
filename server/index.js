@@ -58,7 +58,7 @@ app.get('/api/weather', authenticate, async (req, res) => {
   try {
     // Make a request to the Visual Crossing Weather API
     const response = await axios.get(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}&unitGroup=metric`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${API_KEY}&unitGroup=us`
     );
     
     // Extract relevant weather data
@@ -70,7 +70,7 @@ app.get('/api/weather', authenticate, async (req, res) => {
       icon: weatherData.currentConditions.icon,
       humidity: weatherData.currentConditions.humidity,
       windSpeed: weatherData.currentConditions.windspeed,
-      pressure: weatherData.currentConditions.pressure,
+      precipitation: weatherData.currentConditions.precip,
       feelsLike: weatherData.currentConditions.feelslike,
       visibility: weatherData.currentConditions.visibility,
       uvIndex: weatherData.currentConditions.uvindex,
