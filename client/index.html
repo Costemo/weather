@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Weather Cube</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="flip-container">
-        <div class="flipper">
-            <div class="weather">
-                <h2>How's the Weather?</h2>
-                <input type="text" id="city" placeholder="Enter city name">
-                <button id="weatherBtn" onclick="getWeather()">Get Weather</button>
-                <div id="status" style="display: none;"></div>
-              
-            </div>
-            <div class="result">
-                <button id="closeBtn" onclick="flipBack()">X</button>
-                
-                <div id="result-grid"></div>
-            </div>
-            
-        </div>
+  <div class="scene">
+    <div class="cube" id="cube">
+      <div class="cube-face cube-face--front" id="face-front"></div>
+      <div class="cube-face cube-face--back" id="face-back"></div>
+      <div class="cube-face cube-face--right" id="face-right"></div>
+      <div class="cube-face cube-face--left" id="face-left"></div>
+      <div class="cube-face cube-face--top" id="face-top"></div>
+      <div class="cube-face cube-face--bottom" id="face-bottom"></div>
     </div>
-    <script src="client.js"></script>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="city" placeholder="Enter city name">
+    <button id="getWeatherBtn">Get Weather</button>
+  </div>
+
+  <script src="client.js"></script>
 </body>
 </html>

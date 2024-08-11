@@ -1,140 +1,63 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* background: linear-gradient(45deg, rgb(33, 14, 77), rgb(71, 71, 226)); */
-   
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-   background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center;
-}
-
-.flip-container {
     perspective: 1000px;
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    overflow: hidden;
 }
 
-.flipper {
-    position: relative;
+.scene {
     width: 300px;
-    height: 90vh;
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flip-container.flipped .flipper {
-    transform: rotateY(180deg);
-}
-
-.weather, .result {
-    position: absolute;
-    width: 100%;
-    /* max-height: 90vh; */
-    backface-visibility: hidden;
-    /* min-height: 100%; */
-
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    display: flex;
-    flex-direction: column;
-}
-
-.weather {
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
-}
-
-.result {
+    height: 300px;
+    margin: 100px auto;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
-    transform: rotateY(180deg);
-    padding: 10px; /* Adjusted padding for better spacing */
+    transform-style: preserve-3d;
+    perspective: 1000px; /* Ensure proper 3D perspective */
 }
 
-#result-grid {
-    width: 100%;
-    height: 100%; /* Ensure it occupies the full height of the container */
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.top {
-    width: 100%;
-    text-align: center; /* Center text within the top section */
-    margin-bottom: 10px; /* Space between top section and grid */
-    padding-top: 5px;
-    margin-top: 5px;
-}
-h4 {
-    font-size: 50px;
-    padding: 0;
-    margin: 0;
-}
-
-h5 {
-    font-size: 20px;
-}
-
-.top-info {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center; /* Center content horizontally within the top-info section */
-    border-bottom: 2px solid rgb(59, 59, 182);
-    border-top: 2px solid rgb(59, 59, 182);
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+.cube {
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-150px); /* Center the cube */
+    transition: transform 1s;
 }
 
-.info-grid > p {
-    margin: 0;
-    padding: 10px;
-    border: 1px solid rgb(67, 65, 196);
+.cube-face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 145px;
-    height: 145px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
     font-size: 20px;
+    box-sizing: border-box;
+    padding: 20px;
     text-align: center;
-    border-radius: 20%;
-    /* 3D Effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 -2px 5px rgba(0, 0, 0, 0.15);
-    /* transform: perspective(500px) rotateX(10deg) rotateY(10deg); */
 }
 
-#closeBtn {
-    border-radius: 50%;
-    padding: 5px;
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    right: 2%;
+/* Positioning each face */
+.cube-face--front  { transform: rotateY(  0deg) translateZ(150px); }
+.cube-face--back   { transform: rotateY(180deg) translateZ(150px); }
+.cube-face--right  { transform: rotateY( 90deg) translateZ(150px); }
+.cube-face--left   { transform: rotateY(-90deg) translateZ(150px); }
+.cube-face--top    { transform: rotateX( 90deg) translateZ(150px); }
+.cube-face--bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
 }
 
+#city {
+    padding: 10px;
+    width: 200px;
+}
 
-
-.info-grid span.weather-value {
-    font-size: 35px; /* Adjust this size as needed */
-    font-weight: bold; /* Optional: Makes the fetched value bold */
-     /* Optional: Change the color of the fetched values */
-  
+#getWeatherBtn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
 }
