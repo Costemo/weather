@@ -12,14 +12,25 @@
       <div class="cube-face cube-face--back" id="face-back"></div>
       <div class="cube-face cube-face--right" id="face-right"></div>
       <div class="cube-face cube-face--left" id="face-left"></div>
-      <div class="cube-face cube-face--top" id="face-top"></div>
+      <div class="cube-face cube-face--top" id="face-top">
+        <div class="controls">
+            <input type="text" id="city" placeholder="Enter city name">
+            <button id="getWeatherBtn">Get Weather</button>
+            <div id="status" style="display: none;"></div>
+        
+          </div>
+      </div>
       <div class="cube-face cube-face--bottom" id="face-bottom"></div>
     </div>
   </div>
 
-  <div class="controls">
-    <input type="text" id="city" placeholder="Enter city name">
-    <button id="getWeatherBtn">Get Weather</button>
+ 
+
+<div class="arrows">
+    <button id="upArrow" class="arrow">&uarr;</button>
+    <button id="downArrow" class="arrow">&darr;</button>
+    <button id="leftArrow" class="arrow">&larr;</button>
+    <button id="rightArrow" class="arrow">&rarr;</button>
   </div>
 
   <script src="client.js"></script>
